@@ -12,7 +12,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class SubtractionTest {
 
     @Test
-    public void shouldBeAbleToAddValues() {
+    public void shouldBeAbleToSubtractValues() {
         double val1 = 8;
         double val2 = 4;
 
