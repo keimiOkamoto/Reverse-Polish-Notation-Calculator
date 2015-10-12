@@ -9,16 +9,16 @@ import static org.hamcrest.core.IsEqual.equalTo;
 /**
  * Created by keimiokamoto on 10/10/2015.
  */
-public class AdditionTest {
+public class SubtractTest {
 
     @Test
-    public void shouldBeAbleToAddValues() {
-        double val1 = 5;
-        double val2 = 6;
+    public void shouldBeAbleToSubtractValues() {
+        double val1 = 8;
+        double val2 = 4;
 
-        Addition addition = new Addition(val1, val2);
-        double actual = addition.evaluate();
-        double expected = val1 + val2;
+        Subtract subtract = new Subtract(val1, val2);
+        double actual = subtract.apply();
+        double expected = val1 - val2;
 
         assertThat(expected, is(equalTo(actual)));
     }
