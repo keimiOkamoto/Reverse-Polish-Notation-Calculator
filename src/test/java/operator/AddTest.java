@@ -16,10 +16,10 @@ public class AddTest {
         double val1 = 5;
         double val2 = 6;
 
-        Add add = new Add(val1, val2);
-        double actual = add.apply();
+        Add add = new Add();
+        double actual = add.apply(val1, val2);
         double expected = val1 + val2;
 
-        assertThat(expected, is(equalTo(actual)));
+        assertThat(actual, is(equalTo(expected)));
     }
 }

@@ -1,6 +1,13 @@
+import operator.OperatorFactory;
 import org.junit.Test;
 
+import java.lang.*;
 import java.util.Stack;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 
 /**
  * Created by keimiokamoto on 12/10/2015.
@@ -9,12 +16,12 @@ public class ReversePolishNotationCalculatorTest {
 
     @Test
     public void shouldBeAbleToCalculateValues() {
-        double val1 = 5;
-        double val2 = 3;
+        String expression = "3 5 +";
 
-        Stack<Double> stack = new Stack<>();
+        Calculator calculator = new ReversePolishNotationCalculator(new OperatorFactory());
+        double actual = calculator.calculate(expression);
+        double expected = 8;
 
-        Calculator calculator = new ReversePolishNotationCalculator();
-        calculator.calculate(new Expression());
+        assertThat(actual, is(equalTo(expected)));
     }
 }

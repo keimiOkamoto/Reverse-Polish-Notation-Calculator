@@ -5,5 +5,5 @@ package operator;
  */
 public interface Operator {
 
-    double apply();
+    Double apply(Double operator1, Double operator2);
 }

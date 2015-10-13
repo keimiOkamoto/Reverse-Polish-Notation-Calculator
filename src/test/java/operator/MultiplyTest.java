@@ -16,8 +16,8 @@ public class MultiplyTest {
         double val1 = 8;
         double val2 = 4;
 
-        Multiply multiply = new Multiply(val1, val2);
-        double actual = multiply.apply();
+        Multiply multiply = new Multiply();
+        double actual = multiply.apply(val1, val2);
         double expected = val1 * val2;
 
         assertThat(expected, is(equalTo(actual)));

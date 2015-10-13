@@ -15,8 +15,8 @@ public class DivideTest {
         double val1 = 20;
         double val2 = 5;
 
-        Divide divide = new Divide(val1, val2);
-        double actual = divide.apply();
+        Divide divide = new Divide();
+        double actual = divide.apply(val1, val2);
         double expected = val1 / val2;
 
         assertThat(expected, is(equalTo(actual)));

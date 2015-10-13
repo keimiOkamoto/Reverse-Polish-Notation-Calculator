@@ -16,8 +16,8 @@ public class SubtractTest {
         double val1 = 8;
         double val2 = 4;
 
-        Subtract subtract = new Subtract(val1, val2);
-        double actual = subtract.apply();
+        Subtract subtract = new Subtract();
+        double actual = subtract.apply(val1, val2);
         double expected = val1 - val2;
 
         assertThat(expected, is(equalTo(actual)));
