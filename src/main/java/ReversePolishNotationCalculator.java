@@ -1,36 +1,44 @@
+import java.util.EmptyStackException;
+import java.util.Stack;
+
 /**
  * Created by keimiokamoto on 18/10/2015.
  */
 public class ReversePolishNotationCalculator implements Calculator {
+    private Stack<Double> stack;
 
     public ReversePolishNotationCalculator() {
+        this.stack = new Stack<>();
     }
 
     @Override
-    public double add(double operand1, double operand2) {
-        return operand1 + operand2;
+    public void input(double operand) {
+        stack.push(operand);
     }
 
     @Override
-    public double subtract(double operand1, double operand2) {
-        return operand1 - operand2;
+    public void add() throws EmptyStackException {
+        stack.push(stack.pop() + stack.pop());
     }
 
     @Override
-    public double product(double operand1, double operand2) {
-        return operand1 * operand2;
+    public void subtract() throws EmptyStackException {
+        stack.push(stack.pop() - stack.pop());
     }
 
     @Override
-    public double divide(double operand1, double operand2) {
-        return operand1 / operand2;
+    public void product() throws EmptyStackException {
+        stack.push(stack.pop() * stack.pop());
     }
 
-    public double increment(double operand) {
-        return operand + 1;
+    @Override
+    public void divide() throws EmptyStackException {
+        stack.push(stack.pop() / stack.pop());
     }
 
-    public double decrement(double operand) {
-        return operand- 1;
+    @Override
+    public double getResult() {
+        if (stack.size() == 1) return stack.pop();
+        else throw new IllegalArgumentException();
     }
 }

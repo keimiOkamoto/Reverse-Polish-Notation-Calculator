@@ -3,12 +3,16 @@
  */
 public interface Calculator {
 
-    double add(double operand1, double operand2);
+    void input(double operand);
 
-    double subtract(double operand1, double operand2);
+    void add();
 
-    double product(double operand1, double operand2);
+    void subtract();
 
-    double divide(double operand1, double operand2);
+    void product();
+
+    void divide();
+
+    double getResult();
 
 }
