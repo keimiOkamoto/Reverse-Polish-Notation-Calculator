@@ -1,9 +1,11 @@
 package operator;
 
+import operand.Token;
+
 /**
  * Created by keimiokamoto on 11/10/2015.
  */
-public class Multiply implements Operator {
+public class Multiply extends Token implements Operator {
 
     @Override
     public Double apply(Double operand1, Double operand2) {

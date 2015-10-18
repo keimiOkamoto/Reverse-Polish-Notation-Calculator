@@ -10,7 +10,6 @@ import static org.hamcrest.core.IsEqual.equalTo;
  * Created by keimiokamoto on 10/10/2015.
  */
 public class AddTest {
-
     @Test
     public void shouldBeAbleToAddValues() {
         double val1 = 5;
