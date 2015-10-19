@@ -1,4 +1,4 @@
-package operator;
+import operator.*;
 
 /**
  * Created by keimiokamoto on 13/10/2015.
