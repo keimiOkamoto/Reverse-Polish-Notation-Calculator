@@ -1,11 +1,9 @@
 package operator;
 
-import operand.Token;
-
 /**
  * Created by keimiokamoto on 12/10/2015.
  */
-public class Divide extends Token implements Operator {
+public class Divide implements BinaryOperator<Double>  {
 
     @Override
     public Double apply(Double operand1, Double operand2) {

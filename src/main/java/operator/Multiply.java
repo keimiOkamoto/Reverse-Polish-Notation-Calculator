@@ -1,7 +1,5 @@
 package operator;
 
-import operand.Token;
-
 /**
  * Created by keimiokamoto on 11/10/2015.
  */

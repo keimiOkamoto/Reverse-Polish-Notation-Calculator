@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.EmptyStackException;
+import java.util.IllegalFormatException;
 import java.util.List;
 
 /**
@@ -7,6 +8,7 @@ import java.util.List;
  */
 public class Evaluator {
 
+    private double result;
     private Calculator calculator;
     private String expression;
 
@@ -15,24 +17,36 @@ public class Evaluator {
         this.expression = expression;
     }
 
-    public double evaluate() {
+    public double evaluate() throws IllegalFormatException {
         List<String> expressionList = Arrays.asList(expression.split(""));
-        double result = 0;
 
-        for (int idx = 0; idx < expressionList.size(); idx++) {
+        for (int idx = 0; idx < expressionList.size() - 1; idx++) {
             String token = expressionList.get(idx);
+
             if (isNumerical(token)) calculator.input(Double.parseDouble(token));
-            try {
-                if (token.equals("+")) calculator.add();
-                if (token.equals("-")) calculator.subtract();
-                if (token.equals("*")) calculator.product();
-                if (token.equals("/")) calculator.divide();
-            } catch (EmptyStackException ex) {
-                if (!expressionList.isEmpty() && expressionList.get(idx + 1).equals(token)) result = (token.equals("+")) ? calculator.getResult() + 1 : calculator.getResult() -1;
-            }
+            else
+                try {
+                    operate(token);
+                } catch (EmptyStackException ex) {
+                    System.out.println("Not enough operands to perform binary operation. " + ex.getMessage());
+                } finally {
+                    if (!expressionList.isEmpty() && token.equals(expressionList.get(idx + 1)))
+                        result = (token.equals("+")) ? calculator.getResult() + 1 : calculator.getResult() -1;
+                }
         }
         result = calculator.getResult();
         return result;
+    }
+
+    public double getResult() throws IllegalFormatException {
+        return calculator.getResult();
+    }
+
+    private void operate(String token) {
+        if (token.equals("+")) calculator.add();
+        if (token.equals("-")) calculator.subtract();
+        if (token.equals("*")) calculator.product();
+        if (token.equals("/")) calculator.divide();
     }
 
     private boolean isNumerical(String op) {

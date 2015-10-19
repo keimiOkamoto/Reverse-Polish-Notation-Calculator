@@ -37,7 +37,7 @@ public class ReversePolishNotationCalculator implements Calculator {
     }
 
     @Override
-    public double getResult() {
+    public double getResult()  {
         if (stack.size() == 1) return stack.pop();
         else throw new IllegalArgumentException();
     }

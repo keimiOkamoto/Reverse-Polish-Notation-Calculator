@@ -1,5 +1,3 @@
-import operand.Token;
-
 import java.util.Collection;
 
 /**
