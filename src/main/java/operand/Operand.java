@@ -1,7 +1,7 @@
 package operand;
 
 /**
- * Created by keimiokamoto on 18/10/2015.
+ * Marker interface for operands.
  */
 public interface Operand {
 

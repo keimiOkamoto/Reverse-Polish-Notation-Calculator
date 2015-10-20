@@ -3,7 +3,7 @@ package operand;
 /**
  * Created by keimiokamoto on 17/10/2015.
  */
-public class Constant extends Token implements Operand {
+public class Constant implements Operand, Evaluable {
     private Double constant;
 
     public Constant(Double constant) {
@@ -12,9 +12,5 @@ public class Constant extends Token implements Operand {
 
     public Double getConstant() {
         return constant;
-    }
-
-    public void setConstant(Double constant) {
-        this.constant = constant;
     }
 }

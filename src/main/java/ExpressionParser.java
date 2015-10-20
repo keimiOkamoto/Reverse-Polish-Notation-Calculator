@@ -1,43 +1,35 @@
-import operand.Operand;
-import operand.OperandFactory;
-import operator.Operator;
+import Expression.Expression;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
- * Created by keimiokamoto on 18/10/2015.
+ * Created by keimiokamoto on 20/10/2015.
  */
-public class ExpressionParser implements Parser {
-    private List<Token> tokens;
+public class ExpressionParser<T> {
+
+    private Expression expression;
     private OperatorFactory operatorFactory;
-    private OperandFactory operandFactory;
 
-    public ExpressionParser(OperatorFactory operatorFactory, OperandFactory operandFactory) {
+    public ExpressionParser(Expression expression, OperatorFactory operatorFactory) {
+        this.expression = expression;
         this.operatorFactory = operatorFactory;
-        this.operandFactory = operandFactory;
-        this.tokens = new ArrayList<>();
     }
 
-    @Override
-    public Collection<Token> parse(String expression) {
-        List<String> expressionList = Arrays.asList(expression.split(""));
-        for (String token : expressionList) {
-            if (isOperand(token)) tokens.add((Token)getOperand(token));
-            else tokens.add((Token)getOperator(token));
+    public Collection<T> parse() {
+        ArrayList<String> list = expression.get();
+        for(String token : list) {
+            if (isOperator(token)) {
+
+            }
+            //operand or operator
         }
-        return tokens;
+        return null;
     }
 
-    private boolean isOperand(String instruction) {
-        return (!instruction.equals("+") || !instruction.equals("-") || !instruction.equals("/") || !instruction.equals("*"));
-    }
-
-    private Operator getOperator(String instruction) {
-        return operatorFactory.get(instruction);
-    }
-
-    private Operand getOperand(String instruction) {
-        return operandFactory.get(instruction);
+    private boolean isOperator(String token) {
+        //check for symbols or check for types.
+        return false;
     }
 
 }
