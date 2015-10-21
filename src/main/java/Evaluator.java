@@ -10,18 +10,18 @@
 //
 //    private double result;
 //    private Calculator calculator;
-//    private String expression;
+//    private Expression expression;
 //
-//    public Evaluator(Calculator calculator, String expression) {
+//    public Evaluator(Calculator calculator, Expression expression) {
 //        this.calculator = calculator;
 //        this.expression = expression;
 //    }
 //
 //    public double evaluate() throws IllegalFormatException {
-//        List<String> expressionList = Arrays.asList(expression.split(""));
+//        List<Expression> expressionList = Arrays.asList(expression.split(""));
 //
 //        for (int idx = 0; idx < expressionList.size() - 1; idx++) {
-//            String token = expressionList.get(idx);
+//            Expression token = expressionList.get(idx);
 //
 //            if (isNumerical(token)) calculator.input(Double.parseDouble(token));
 //            else
@@ -37,7 +37,7 @@
 //        return result;
 //    }
 //
-//    private boolean isNumerical(String op) {
+//    private boolean isNumerical(Expression op) {
 //        try {
 //            Double.parseDouble(op);
 //            return true;

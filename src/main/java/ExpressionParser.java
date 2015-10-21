@@ -1,35 +1,33 @@
 import Expression.Expression;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by keimiokamoto on 20/10/2015.
  */
 public class ExpressionParser<T> {
 
-    private Expression expression;
+    private String unparsedExpression;
     private OperatorFactory operatorFactory;
 
-    public ExpressionParser(Expression expression, OperatorFactory operatorFactory) {
-        this.expression = expression;
+    public ExpressionParser(String unparsedExpression, OperatorFactory operatorFactory) {
+        this.unparsedExpression = unparsedExpression;
         this.operatorFactory = operatorFactory;
     }
 
-    public Collection<T> parse() {
-        ArrayList<String> list = expression.get();
-        for(String token : list) {
-            if (isOperator(token)) {
+    public Expression parse() {
+        List<String> unparsed = Arrays.asList(unparsedExpression);
+        unparsed.stream().filter(token -> isOperator(token)).forEach(token -> {
+            if (isOperator(token)){
 
             }
-            //operand or operator
-        }
+        });
         return null;
     }
 
     private boolean isOperator(String token) {
-        //check for symbols or check for types.
-        return false;
+        return  token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
     }
 
 }
