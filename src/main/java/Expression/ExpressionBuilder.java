@@ -5,7 +5,7 @@ package Expression;
  */
 public class ExpressionBuilder<T> {
 
-    public ExpressionBuilder (Expression.Expression expression) {
+    public ExpressionBuilder (Expression expression) {
 
     }
 

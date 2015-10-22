@@ -17,7 +17,11 @@ public class Expression<T> {
         return expression;
     }
 
-    public void getFirst() {
+    public T pop() {
+        return expression.pop();
+    }
 
+    public T push(T item) {
+        return expression.push(item);
     }
 }
